@@ -11,6 +11,12 @@ const scoreboard = document.querySelector('.scoreboard');
 const score = document.createElement('h1');
 scoreboard.appendChild(score);
 
+//picked options
+const optionPicked = document.querySelector('.options-picked');
+const playerOption = document.createElement('p');
+const computerOption = document.createElement('p');
+optionPicked.append(playerOption,computerOption);
+
 //returns a random choice for rps
 let getComputerChoice = () => {
     let r = Math.floor(Math.random()*3);
@@ -77,6 +83,8 @@ let playRound = (computerSelection, playerSelection) => {
         console.log("invalid selection try again (make sure to input rock paper or scissor");
     }
     score.textContent = `${playerScore} : ${computerScore}`;
+    computerOption.textContent = `${computerSelection}`;
+    playerOption.textContent = `${playerSelection}`;
 
     
 }
