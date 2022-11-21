@@ -13,7 +13,7 @@ const score = document.createElement('h1');
 scoreboard.appendChild(score);
 
 //picked options dom
-const optionPicked = document.querySelector('.options-picked');
+const optionPicked = document.querySelector('.picked-options');
 const playerOption = document.createElement('p');
 const computerOption = document.createElement('p');
 optionPicked.append(playerOption,computerOption);
