@@ -18,6 +18,10 @@ body {
     display: flex;
 }
 
+.options button {
+    width: 100px;
+}
+
 /* picked */
 .picked {
     display: flex;
