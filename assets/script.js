@@ -6,6 +6,7 @@
 let playerScore = 0;
 let computerScore = 0;
 
+//scoreboard initialization
 const scoreboard = document.querySelector('.scoreboard');
 const score = document.createElement('h1');
 scoreboard.appendChild(score);
@@ -85,8 +86,8 @@ let playRound = (computerSelection, playerSelection) => {
 const rock_button = document.querySelector('#rock');
 const paper_button = document.querySelector('#paper');
 const scissor_button = document.querySelector('#scissor');
-// button events that run the playround function?
 
+// button event function
 const playRock = () => {
     playRound(getComputerChoice(), 'rock');
 }
@@ -99,6 +100,7 @@ const playScissor = () => {
     playRound(getComputerChoice(), 'scissor');
 }
 
+//button events
 rock_button.addEventListener('click', playRock);
 paper_button.addEventListener('click', playPaper);
 scissor_button.addEventListener('click', playScissor);
