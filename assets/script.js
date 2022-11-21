@@ -2,6 +2,14 @@
     rock paper scissor console version
 */
 
+//global variable, scores
+let playerScore = 0;
+let computerScore = 0;
+
+const scoreboard = document.querySelector('.scoreboard');
+const score = document.createElement('h1');
+scoreboard.appendChild(score);
+
 //returns a random choice for rps
 let getComputerChoice = () => {
     let r = Math.floor(Math.random()*3);
@@ -15,9 +23,9 @@ let getComputerChoice = () => {
         case 2:
             return "scissor";
             break;
-
+        default:
+            return "hello";
     }
-    
 }
 
 let playRound = (computerSelection, playerSelection) => {
@@ -26,70 +34,72 @@ let playRound = (computerSelection, playerSelection) => {
         switch (computerSelection){
             case "rock":
                 console.log("It's a draw, Rock is Rock");
-                return 0;
                 break;
             case "paper":
                 console.log("You lose! Paper beats Rock");
-                return -1;
+                computerScore++;
                 break;
             case "scissor":
                 console.log("You win! Rock beats Scissor");
-                return 1;
+                playerScore++;
                 break;
         }
     } else if (playerSelection == "paper") {
         switch(computerSelection) {
             case "rock":
                 console.log("You win! Paper beats Rock");
-                return 1;
+                playerScore++;
                 break;
             case "paper":
                 console.log("It's a draw, Paper is Paper");
-                return 0;
                 break;
             case "scissor":
                 console.log("You lose! Scissor beats Paper");
-                return -1;
+                computerScore++;
                 break;
         }
     } else if (playerSelection == "scissor") {
         switch(computerSelection) {
             case "rock":
                 console.log("You lose! Rock beats Scissor");
-                return -1;
+                computerScore++;
                 break;
             case "paper":
                 console.log("You win! Scissor beats Paper");
-                return 1;
+                playerScore++;
                 break;
             case "scissor":
                 console.log("It's a draw, Scissor is Scissor");
-                return 0;
                 break;
         }
     } else {
         console.log("invalid selection try again (make sure to input rock paper or scissor");
-        return 0;
     }
+    score.textContent = `${playerScore} : ${computerScore}`;
+
+    
 }
 
-let game = () => {
-    let score;
-    let pScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("rock paper scissor shoot!");
-        let round = playRound(getComputerChoice(), playerSelection);
-        if (round == 0) {
-            i = i-1;
-        } else if (round == 1){
-            pScore++;
-        }
-        
-    }
-    let result = `Result is...
-    player  :${pScore}
-    computer:${5-pScore}`
-    console.log(result);
+
+// button initalization
+const rock_button = document.querySelector('#rock');
+const paper_button = document.querySelector('#paper');
+const scissor_button = document.querySelector('#scissor');
+// button events that run the playround function?
+
+const playRock = () => {
+    playRound(getComputerChoice(), 'rock');
 }
 
-game();
+const playPaper = () => {
+    playRound(getComputerChoice(), 'paper');
+}
+
+const playScissor = () => {
+    playRound(getComputerChoice(), 'scissor');
+}
+
+rock_button.addEventListener('click', playRock);
+paper_button.addEventListener('click', playPaper);
+scissor_button.addEventListener('click', playScissor);
+
