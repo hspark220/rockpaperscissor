@@ -25,7 +25,7 @@ computerOption.textContent = 'choosing...';
 const result = document.querySelector('.results');
 const resultText = document.createElement('p');
 result.append(resultText);
-resultText.textContent = 'choose one of the options...';
+resultText.textContent = 'rock paper scissor.... shoot!';
 
 //returns a random choice for rps
 let getComputerChoice = () => {
