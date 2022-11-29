@@ -16,10 +16,15 @@ body {
 /* options */
 .options {
     display: flex;
+    gap: 50px;
 }
-
 .options button {
     width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.options button:hover {
+    background-color: white;
 }
 
 /* picked */

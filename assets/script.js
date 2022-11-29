@@ -91,7 +91,20 @@ let playRound = (computerSelection, playerSelection) => {
     score.textContent = `${playerScore} : ${computerScore}`;
     computerOption.textContent = `${computerSelection}`;
     playerOption.textContent = `${playerSelection}`;
+
+    if (playerScore == 5) {
+        resultTextString = "GG Player Wins!";
+        playerScore = 0;
+        computerScore = 0;
+    } else if (computerScore == 5) {
+        resultTextString = "GG Computer Wins!";
+        playerScore = 0;
+        computerScore = 0;
+    }
+
     resultText.textContent = `${resultTextString}`
+    
+    
 
     
 }
