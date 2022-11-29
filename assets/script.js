@@ -11,17 +11,21 @@ let resultTextString = '';
 const scoreboard = document.querySelector('.scoreboard');
 const score = document.createElement('h1');
 scoreboard.appendChild(score);
+score.textContent = '0 : 0';
 
 //picked options dom
 const optionPicked = document.querySelector('.picked-options');
 const playerOption = document.createElement('p');
 const computerOption = document.createElement('p');
 optionPicked.append(playerOption,computerOption);
+playerOption.textContent = 'choosing...';
+computerOption.textContent = 'choosing...';
 
 //results dom
 const result = document.querySelector('.results');
 const resultText = document.createElement('p');
 result.append(resultText);
+resultText.textContent = 'choose one of the options...';
 
 //returns a random choice for rps
 let getComputerChoice = () => {
